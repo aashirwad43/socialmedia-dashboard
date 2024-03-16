@@ -1,11 +1,11 @@
 class Post {
-  id: string;
+  id: number;
   name: string;
   title: string;
-  post: string;
-  constructor(name: string, title: string, post: string, id: string) {
+  description: string;
+  constructor(name: string, title: string, description: string, id: number) {
     this.name = name;
-    this.post = post;
+    this.description = description;
     this.title = title;
     this.id = id;
   }

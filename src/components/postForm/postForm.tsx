@@ -1,13 +1,44 @@
-import { Box, Button, Modal } from "@mui/material";
-import React from "react";
+import { Box, Modal } from "@mui/material";
+import React, { useState } from "react";
+import { addPost } from "../../redux/reducers/slices/postSlice";
+import { useDispatch } from "react-redux";
 
 function PostForm() {
   const [open, setOpen] = React.useState(false);
+  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const dispatch = useDispatch();
+
+  type submitEvent = React.FormEvent;
+
+  // Event handlers to update the state variables as the user types
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+  };
+
+  const handleDescriptionChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setDescription(event.target.value);
+  };
+
+  const handleSubmit = (event: submitEvent) => {
+    event.preventDefault();
+    dispatch(addPost({ id: Date.now(), name, title, description }));
+    setOpen(false);
+  };
+
   const style = {
-    position: "absolute" as "absolute",
+    position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
@@ -16,7 +47,13 @@ function PostForm() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Create</Button>
+      <button
+        type="button"
+        onClick={handleOpen}
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Create a New Post
+      </button>
 
       <Modal
         open={open}
@@ -29,7 +66,7 @@ function PostForm() {
             <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
               <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  Add New Post
+                  Create a New Post
                 </h3>
                 <button
                   type="button"
@@ -55,7 +92,7 @@ function PostForm() {
                   <span className="sr-only">Close modal</span>
                 </button>
               </div>
-              <form className="p-4 md:p-5">
+              <form className="p-4 md:p-5" onSubmit={handleSubmit}>
                 <div className="grid gap-4 mb-4 grid-cols-2">
                   <div className="col-span-2">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -65,6 +102,7 @@ function PostForm() {
                       type="text"
                       name="name"
                       id="name"
+                      onChange={handleNameChange}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="Type your name"
                     />
@@ -77,17 +115,19 @@ function PostForm() {
                       type="text"
                       name="name"
                       id="name"
+                      onChange={handleTitleChange}
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="Type post title"
                     />
                   </div>
                   <div className="col-span-2">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                      Post
+                      Description
                     </label>
                     <textarea
                       id="description"
                       rows={4}
+                      onChange={handleDescriptionChange}
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Write post here"
                     ></textarea>
