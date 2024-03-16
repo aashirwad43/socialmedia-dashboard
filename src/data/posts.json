@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "title": "18 Best Practices for React",
+      "description": "React is one of the most popular techs when talking about JavaScript. Even for some developers, it’s the best. React doesn’t force you how to structure your project. It’s completely up to you to choose how do it. As a result, that makes some developers bring the artistic sense out of them. But, on the other hand… others can make a mess. When working as a team, it’s better to make an understandable structure and code."
+    },
+    {
+      "id": 2,
+      "name": "Mary",
+      "title": "The Ultimate Smartphone Showdown",
+      "description": "In this comprehensive review, we delve into the world of flagship smartphones, pitting the latest models against each other. From top-tier cameras and blazing-fast processors to sleek designs and innovative features, we'll analyze every aspect to help you make an informed decision. Whether you're a photography enthusiast, a power user, or a budget-conscious consumer, our in-depth comparison will guide you towards the perfect smartphone that suits your needs and preferences."
+    },
+    {
+      "id": 3,
+      "name": "Jack",
+      "title": "Demystifying AI: Understanding Machine Learning",
+      "description": "Artificial Intelligence and Machine Learning are revolutionizing industries worldwide. In this blog series, we take a deep dive into the fundamental concepts behind popular ML algorithms. From decision trees to neural networks, we'll explain how these algorithms work and explore their real-world applications. Whether you're a tech enthusiast or a business professional, this series will provide you with the knowledge and insights to embrace AI's transformative power."
+    },
+    {
+      "id": 4,
+      "name": "Roger",
+      "title": "Stay Safe Online",
+      "description": "In an age where cyber threats are ever-present, safeguarding your digital identity is crucial. Our comprehensive guide offers ten practical tips to bolster your online security. Discover the best password practices, the importance of two-factor authentication, and how to identify phishing attempts. We'll also explore the latest privacy tools to keep your personal information safe from prying eyes. Arm yourself with knowledge to protect your digital assets and maintain peace of mind."
+    },
+    {
+      "id": 5,
+      "name": "Sam",
+      "title": "Tech Buzz",
+      "description": "Stay on the cutting edge of technology with our up-to-date coverage of the tech industry's latest developments. From major product launches to groundbreaking innovations, we'll keep you informed about the tech world's most exciting news. Whether it's the unveiling of the newest flagship smartphones, advances in renewable energy, or the latest breakthroughs in AI, you'll be at the forefront of the tech revolution."
+    },
+    {
+      "id": 1,
+      "name": "Rose",
+      "title": "Smart Homes of Tomorrow",
+      "description": "Enter the world of IoT-enabled smart homes, where everyday devices become interconnected to create a seamless living experience. Our blog series explores the latest advancements in smart home technology, from voice-activated assistants to automated lighting and climate control systems. Learn how IoT is revolutionizing home security, energy efficiency, and daily routines, all while providing unparalleled convenience. Get ready to embrace the future of connected living."
+    }
+  ]
+}
