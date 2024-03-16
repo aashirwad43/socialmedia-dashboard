@@ -3,7 +3,7 @@ import { RootState } from "../redux/store/store";
 import { v4 as uuidv4 } from "uuid";
 import ArticleCard from "../components/card/articleCard";
 import { currentDate, truncate } from "../shared/utils";
-//import Button from "../components/button/button";
+import Button from "../components/button/button";
 import { removePost } from "../redux/reducers/slices/postSlice";
 
 function Home() {
@@ -34,7 +34,8 @@ function Home() {
                 </div>
                 <div className="flex justify-end">
                   {/* <button>Edit</button> */}
-                  <button onClick={() => handleDelete(post.id)}>Delete</button>
+
+                  <Button handleDelete={() => handleDelete(post.id)} />
                 </div>
               </ArticleCard>
             </div>
