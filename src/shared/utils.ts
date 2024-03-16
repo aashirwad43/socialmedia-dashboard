@@ -5,3 +5,11 @@ export function currentDate(date: Date): string {
   const day = date.getDate().toString().padStart(2, "0");
   return `${month}/${day}/${year}`;
 }
+
+// truncate a given string to specified length and append "..." if it's longer than the specified length
+export const truncate = (str: string, num: number): string => {
+  if (str.length <= num) {
+    return str;
+  }
+  return str.slice(0, num) + "...";
+};
