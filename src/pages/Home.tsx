@@ -3,6 +3,8 @@ import { RootState } from "../redux/store/store";
 import { v4 as uuidv4 } from "uuid";
 import ArticleCard from "../components/card/articleCard";
 import { currentDate } from "../shared/types";
+import { Button } from "@mui/base";
+import EditForm from "../components/editForm/editForm";
 
 function Home() {
   const posts = useSelector((state: RootState) => state.post.postList);
@@ -14,6 +16,15 @@ function Home() {
           return (
             <div key={uuidv4()}>
               <ArticleCard>
+                <div className="flex justify-end mt-5">
+                  <EditForm
+                    name={post.name}
+                    title={post.title}
+                    post={post.description}
+                    id={post.id}
+                  />
+                  <Button className="ml-5">Delete</Button>
+                </div>
                 <div className="flex justify-center py-4 font-roboto font-bold text-xl text-blue-500">
                   {post.title}
                 </div>
