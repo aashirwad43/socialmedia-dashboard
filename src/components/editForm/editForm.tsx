@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { updatePost } from "../../redux/reducers/slices/postSlice";
 import { useAppDispatch } from "../../redux/hooks/hooks";
+import Button from "../button/button";
 
 interface ModalProps {
   name: string; // Example prop
@@ -46,13 +47,7 @@ const EditForm: React.FC<ModalProps> = ({ name, title, post, id }) => {
   return (
     <div>
       <div>
-        <button
-          type="button"
-          onClick={handleOpen}
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Edit
-        </button>
+        <Button action="edit" handleClick={handleOpen} />
 
         <Modal
           open={open}
