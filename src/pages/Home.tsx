@@ -3,8 +3,10 @@ import { RootState } from "../redux/store/store";
 import { v4 as uuidv4 } from "uuid";
 import ArticleCard from "../components/card/articleCard";
 import { currentDate, truncate } from "../shared/utils";
-import Button from "../components/button/button";
+//import { Button } from "@mui/base";
+import EditForm from "../components/editForm/editForm";
 import { removePost } from "../redux/reducers/slices/postSlice";
+import Button from "../components/button/button";
 
 function Home() {
   const posts = useSelector((state: RootState) => state.post.postList);
@@ -32,10 +34,17 @@ function Home() {
                 <div className="px-8 text-sm">
                   {truncate(post.description, 300)}
                 </div>
-                <div className="flex justify-end">
-                  {/* <button>Edit</button> */}
-
-                  <Button handleDelete={() => handleDelete(post.id)} />
+                <div className="flex justify-end ">
+                  <EditForm
+                    name={post.name}
+                    title={post.title}
+                    post={post.description}
+                    id={post.id}
+                  />
+                  <Button
+                    action="delete"
+                    handleClick={() => handleDelete(post.id)}
+                  />
                 </div>
               </ArticleCard>
             </div>
